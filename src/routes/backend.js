@@ -20,6 +20,7 @@ export default class backend extends React.PureComponent {
 		imageUrl: '',
 		cache: {},
 		action: false,
+		type: '',
 		currentUser: {}
 	}
 
@@ -31,13 +32,7 @@ export default class backend extends React.PureComponent {
 
 		this.props.dispatch({
 			type: 'example/fetchBackend',
-			payload: {},
-			// callback: (result) => {
-			// 	if (result.data.code === 403) {
-			// 		message.warn(result.data.msg);
-			// 		this.props.dispatch(routerRedux.push('/backend/login'));
-			// 	}
-			// }
+			payload: {}
 		});
 		this.setState({
 			currentUser: backend
@@ -46,23 +41,27 @@ export default class backend extends React.PureComponent {
 
 
 	showModal = (e, action) => {
-		let value = {};
+		(e);
+		(action);
 		if (action === 'edit') {
-			value = e;
+			this.setState({
+				cache: e,
+				type: action
+			});
 			this.props.dispatch({
 				type: 'example/show',
 				payload: {
-					value: value,
-					action: 'edit'
+					value: e
 				}
 			})
 		} else {
-			console.log('新建')
+			this.setState({
+				type: 'create',
+			})
 			this.props.dispatch({
 				type: 'example/show',
 				payload: {
-					value: value,
-					action: 'create'
+					value: e
 				}
 			})
 		}
@@ -98,7 +97,7 @@ export default class backend extends React.PureComponent {
 	}
 
 	handleMenuClick = (e) => {
-		console.log('click', e);
+		('click', e);
 		this.props.dispatch({
 			type: 'example/fetchBackend',
 			payload: { type: e.key, token: backend }
@@ -107,7 +106,13 @@ export default class backend extends React.PureComponent {
 
 	render() {
 
-		const { currentUser } = this.state;
+		/**
+		 * currentUser 当前token
+		 * cache 修改时的缓存
+		 * type 类型
+		 */
+		const { currentUser, cache, type } = this.state;
+		console.log(type)
 
 		const menu = (
 			<Menu onClick={this.handleMenuClick}>
@@ -169,7 +174,7 @@ export default class backend extends React.PureComponent {
 							size="large"
 							pagination={{
 								onChange: (page) => {
-									console.log(page);
+									(page);
 								},
 								pageSize: 4,
 							}}
@@ -202,7 +207,7 @@ export default class backend extends React.PureComponent {
 					朱杰作品
         </Footer>
 
-				<Modal auth={currentUser} />
+				{cache ? <Modal auth={currentUser} cache={cache} type={type} /> : ''}
 			</Layout>
 		)
 	}

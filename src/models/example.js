@@ -11,7 +11,6 @@ export default {
       }
     },
     visible: false,
-    cache: {},  // 修改时的默认值
     currentUser: {},
     edit: '',
     images: []
@@ -27,7 +26,7 @@ export default {
       yield put({ type: 'save', payload: { ...payload } });
     },
     *fetchBackend({ payload }, { call, put }) {
-      console.log(payload)
+      (payload)
       const response = yield call(getVoteContent, payload);
       yield put({
         type: 'voteBackendContent',
@@ -53,17 +52,15 @@ export default {
 
   reducers: {
     changeVisible(state, { payload }) {
-      console.log(payload)
+      (payload)
       return {
         ...state,
-        visible: payload.visible,
-        cache: payload.payload.value,
-        edit: payload.payload.action
+        visible: payload.visible
       }
     },
 
     hidden(state, { payload }) {
-      console.log(payload)
+      (payload)
       return {
         ...state,
         visible: payload
@@ -71,12 +68,12 @@ export default {
     },
 
     save(state, action) {
-      console.log(action);
+      (action);
       return { ...state, ...action.payload };
     },
 
     voteBackendContent(state, { payload }) {
-      console.log(payload)
+      (payload)
       return {
         ...state,
         voteBackendContent: payload

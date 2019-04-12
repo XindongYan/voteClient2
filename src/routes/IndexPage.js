@@ -63,7 +63,7 @@ export default class IndexPage extends React.PureComponent {
         });
       }
     } catch (error) {
-      console.log(error)
+      (error)
       message.warn('投票频率过快请稍后再试')
     }
 
@@ -76,7 +76,7 @@ export default class IndexPage extends React.PureComponent {
   }
 
   handleCancel = (e) => {
-    console.log(e);
+    (e);
     this.setState({
       visible: false,
       visible1: false
@@ -84,7 +84,7 @@ export default class IndexPage extends React.PureComponent {
   }
 
   showDetail = (e) => {
-    console.log(e)
+    (e)
     this.setState({
       visible1: true,
       detail: e
@@ -92,7 +92,7 @@ export default class IndexPage extends React.PureComponent {
   }
 
   refreshCode() {
-    console.log('刷新验证');
+    ('刷新验证');
     verification().then(res => {
       document.getElementById("svg").innerHTML = res.data.src;
     })
@@ -102,7 +102,7 @@ export default class IndexPage extends React.PureComponent {
 
     const { voteBackendContent } = this.props;
     const { detail, src } = this.state;
-    console.log(src);
+    (src);
     // document.getElementById("svg").innerHTML = src;
 
     return (
