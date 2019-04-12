@@ -29,8 +29,6 @@ export default function request(url, options) {
     'Content-Type': 'application/json; charset=utf-8',
   });
 
-  (Option)
-
   return fetch(api + url, options)
     .then(checkStatus)
     .then(parseJSON)

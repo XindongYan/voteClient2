@@ -145,7 +145,7 @@ export default class modalMusk extends React.PureComponent {
 
 		const { getFieldDecorator } = this.props.form;
 		let { cache, visible, type } = this.props;
-		let { image, imageUrl, localCache } = this.state;
+		let { image, imageUrl } = this.state;
 		cache || (cache = {});	//解决首次加载未定义
 		if (type === 'create') {
 			cache = {};

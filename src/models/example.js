@@ -26,7 +26,6 @@ export default {
       yield put({ type: 'save', payload: { ...payload } });
     },
     *fetchBackend({ payload }, { call, put }) {
-      (payload)
       const response = yield call(getVoteContent, payload);
       yield put({
         type: 'voteBackendContent',
@@ -52,7 +51,6 @@ export default {
 
   reducers: {
     changeVisible(state, { payload }) {
-      (payload)
       return {
         ...state,
         visible: payload.visible
@@ -60,7 +58,6 @@ export default {
     },
 
     hidden(state, { payload }) {
-      (payload)
       return {
         ...state,
         visible: payload
@@ -68,12 +65,10 @@ export default {
     },
 
     save(state, action) {
-      (action);
       return { ...state, ...action.payload };
     },
 
     voteBackendContent(state, { payload }) {
-      (payload)
       return {
         ...state,
         voteBackendContent: payload

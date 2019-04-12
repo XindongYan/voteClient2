@@ -41,8 +41,6 @@ export default class backend extends React.PureComponent {
 
 
 	showModal = (e, action) => {
-		(e);
-		(action);
 		if (action === 'edit') {
 			this.setState({
 				cache: e,
@@ -97,7 +95,6 @@ export default class backend extends React.PureComponent {
 	}
 
 	handleMenuClick = (e) => {
-		('click', e);
 		this.props.dispatch({
 			type: 'example/fetchBackend',
 			payload: { type: e.key, token: backend }
@@ -174,7 +171,6 @@ export default class backend extends React.PureComponent {
 							size="large"
 							pagination={{
 								onChange: (page) => {
-									(page);
 								},
 								pageSize: 4,
 							}}

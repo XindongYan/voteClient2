@@ -50,7 +50,6 @@ export function getVoteContent(value) {
 
 // 点赞
 export function like(value) {
-  (value)
   return request('/api/like', {
     method: 'POST',
     body: value,
