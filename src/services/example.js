@@ -48,6 +48,15 @@ export function getVoteContent(value) {
   })
 }
 
+// 管理员获取内容
+export function backendContent(value, token) {
+  return request('/api/getContetnA', {
+    method: 'POST',
+    body: value,
+    headers: { Authorization: token }
+  })
+}
+
 // 点赞
 export function like(value) {
   return request('/api/like', {
